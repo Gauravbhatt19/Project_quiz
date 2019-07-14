@@ -56,7 +56,7 @@ include "connection.php";
   <div class="card-body">
   	<h5>Instructions:</h5>
   	<ol>	
-  	<li>First of all Register and ask admin to activate your account.</li>
+  	<li>First of all Register and ask <span ondblclick="window.location.href='./admin/'">admin</span> to activate your account.</li>
   	<li>The Quiz will start at <b><?php $qry="SELECT val_u FROM user_control WHERE name='TIME'";
   	$result= mysqli_query($conn,$qry) or die(mysqli_error($conn));
   	$resultset=mysqli_fetch_assoc($result);

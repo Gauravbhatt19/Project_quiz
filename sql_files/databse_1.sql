@@ -6,7 +6,8 @@
 -- INSERT INTO `user_control` (
 --   `name`,`val_u` ) VALUES ('TIME','11:00:00PM');
 
-INSERT INTO `user_control` (
-  `name`,`val_u` ) VALUES ('REGISTER','TRUE');
-INSERT INTO `user_control` (
-  `name`,`val_u` ) VALUES ('LOGIN','TRUE');
+-- INSERT INTO `user_control` (
+--   `name`,`val_u` ) VALUES ('REGISTER','TRUE');
+-- INSERT INTO `user_control` (
+--   `name`,`val_u` ) VALUES ('LOGIN','TRUE');
+ INSERT INTO `user_control` (  `name`,`val_u` ) VALUES ('TEST','TRUE');

@@ -9,6 +9,14 @@ if (isset($_SESSION['id'])) {
     if($check!='TRUE'){
       header("location: ./waiting.php");
     }
+        $qry1="SELECT val_u FROM user_control WHERE name='TEST'";
+    $result1= mysqli_query($conn,$qry1) or die(mysqli_error($conn));
+    $resultset1=mysqli_fetch_assoc($result1);
+    $check1=$resultset1['val_u']; 
+    if($check1!='TRUE'){
+   		$_SESSION['success']='Quiz is not started yet..!';
+      header("location: ./home.php");
+	}
  if(!isset($_SESSION['tattmpt'])) {
 		 header("location: home.php");
 	 }
