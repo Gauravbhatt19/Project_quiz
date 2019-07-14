@@ -1,0 +1,1 @@
+<div class="container-fluid text-center bg-secondary text-white">Copyright &copy; Spiders 2019-2020</div>
