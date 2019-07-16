@@ -18,24 +18,27 @@ if (isset($_SESSION['id'])) {
 	</head>
 
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand mr-5" href="#">ONLINE QUIZ PORTAL</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 text-center">
      <li class='nav-item'>
-        <a class='nav-link btn btn-info text-dark m-2' href='./home.php'>Home</a>
+        <a class='nav-link m-2' href='./home.php'>Home</a>
+      </li>     
+      <li class='nav-item'>
+        <a class='nav-link m-2' href='./changepass.php'>Change Password</a>
       </li>
       <li class='nav-item'>
         <a class='nav-link btn btn-danger m-2 ' href='javascript:void(0)' 
         onclick="logout()">Logout</a>
         <script type="text/javascript">
-        	function logout(){
-        		var test= window.confirm("Are you sure, You want to logout !");
-        		if(test == true)
-        			window.location='./_logout.php';
-        	}
+          function logout(){
+            var test= window.confirm("Are you sure, You want to logout !");
+            if(test == true)
+              window.location='./_logout.php';
+          }
         </script>
       </li>
     </ul>

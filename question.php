@@ -9,7 +9,7 @@ if (isset($_SESSION['id'])) {
     if($check!='TRUE'){
       header("location: ./waiting.php");
     }
-    $qry1="SELECT val_u FROM user_control WHERE name='TEST'";
+    $qry1="SELECT val_u FROM user_control WHERE name='QUIZ'";
     $result1= mysqli_query($conn,$qry1) or die(mysqli_error($conn));
     $resultset1=mysqli_fetch_assoc($result1);
     $check1=$resultset1['val_u']; 

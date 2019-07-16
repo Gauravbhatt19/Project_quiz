@@ -20,6 +20,18 @@ if (!isset($_POST['lname'])) {
 $_SESSION['err2']='PLEASE ENTER VALID LAST NAME..!';
 $flg=0;
 }
+if (!isset($_POST['pass1'])) {
+$_SESSION['err4']='PLEASE ENTER VALID PASSWORD..!';
+$flg=0;
+}
+if (!isset($_POST['cpass'])) {
+$_SESSION['err5']='PLEASE ENTER VALID CONFIRM PASSWORD..!';
+$flg=0;
+}
+if($_POST['pass1']!==$_POST['cpass']){
+	$_SESSION['err5']='CONFIRM PASSWORD DOESN\'T MATCHES WITH PASSWORD, TRY AGAIN..!';
+$flg=0;
+}
 if (!isset($_POST['numb']) or validate_mobile($_POST['numb'])) {
 $_SESSION['err3']='PLEASE ENTER VALID NUMBER..!';
 $flg=0;
@@ -33,6 +45,8 @@ else
 	$fname=mysqli_escape_string($conn,$_POST['fname']);
 	$lname=mysqli_escape_string($conn,$_POST['lname']);
 	$numb=mysqli_escape_string($conn,$_POST['numb']);
+	$cpass=mysqli_escape_string($conn,$_POST['cpass']);
+	$pass=password_hash($cpass,PASSWORD_DEFAULT);
     $checkmail = "SELECT * from users WHERE mbno = '$numb'";
     $runcheck = mysqli_query($conn , $checkmail) or die(mysqli_error($conn));
     	if (mysqli_num_rows($runcheck) > 0) {
@@ -48,7 +62,7 @@ else
 	}
 		else {
 		$last_mod = date('Y-m-d H:i:s');
-	$query = "INSERT INTO users(mbno,fname,lname,last_mod) VALUES ('$numb','$fname','$lname','$last_mod')";
+	$query = "INSERT INTO users(mbno,fname,lname,last_mod,pass) VALUES ('$numb','$fname','$lname','$last_mod','$pass')";
 	$run = mysqli_query($conn, $query) or die(mysqli_error($conn)) ;
 	if (mysqli_affected_rows($conn) > 0) {
 		$query2 = "SELECT * FROM users WHERE mbno = '$numb' ";

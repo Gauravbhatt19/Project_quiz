@@ -1,7 +1,13 @@
 <?php
-if(!isset($_SESSION))
 	session_start();
 include "connection.php";
+if(isset($_SESSION['id'])){
+  header("location: home.php");
+}
+if (isset($_SESSION['admin'])) {
+  $lnk= "location: ./admin/adminhome.php";
+ header($lnk);
+}
 ?>
 
 <?php $qry="SELECT val_u FROM user_control WHERE name='REGISTER'";
@@ -113,7 +119,30 @@ echo "</div>
     echo "</div>
     </div>
   </div>
- 
+  <div class='form-row m-1'>
+   <div class='col-lg-6 mb-3'>
+      <label for='validationDefaultpass1'>Password</label>
+      <div class='input-group'>
+        <input type='password' name='pass1' class='form-control' id='validationDefaultpass'  aria-describedby='inputGroupPrepend2' placeholder='Enter Password'  required>";
+                         if (isset($_SESSION['err4']))
+  echo "<div class='alert alert-warning alert-dismissible fade show m-2' role='alert'>".$_SESSION['err4']."
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>";
+echo "</div>
+</div>     <div class='col-lg-6 mb-3'>";
+      echo "<label for='validationDefaultpass2'>Confirm Password</label>
+      <div class='input-group'>
+        <input type='password' name='cpass' class='form-control' id='validationDefaultpass2'  aria-describedby='inputGroupPrepend2'  placeholder=' Re Enter Password' required>
+        ";
+                         if (isset($_SESSION['err5']))
+  echo "<div class='alert alert-warning alert-dismissible fade show m-2' role='alert'>".$_SESSION['err5']."
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>"; 
+echo "</div></div></div>
   <button class='btn btn-dark ml-5 m-2' type='submit'>Register</button> 
   <button class='btn btn-light ml-3 m-2' type='reset'>Clear</button>
 </div>
@@ -142,6 +171,19 @@ if($flag2==='TRUE'){
       </div>
     </div>
   </div>
+  <div class='form-row m-1'>
+   <div class='col-lg-12 mb-3'>
+      <label for='validationDefaultpass1'>Password</label>
+      <div class='input-group'>
+        <input type='password' name='pass1' class='form-control' id='validationDefaultpass'  aria-describedby='inputGroupPrepend2' placeholder='Password' required>
+        ";
+            if (isset($_SESSION['err6']))
+  echo "<div class='alert alert-warning alert-dismissible fade show m-2' role='alert'>".$_SESSION['err6']."
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>"; 
+echo"</div></div></div>
   <button class='btn btn-dark ml-5 m-2' type='submit'>Login</button> 
   <button class='btn btn-light ml-3 m-2' type='reset'>Clear</button>
 </div>

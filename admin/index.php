@@ -59,10 +59,5 @@ if (isset($_SESSION['admin'])) {
     <script src="../bootstrap-4.1.3-dist/js/bootstrap.min.js" ></script>
 </div>
 </div>
-
-
-
-	
-
 	</body>
 </html>

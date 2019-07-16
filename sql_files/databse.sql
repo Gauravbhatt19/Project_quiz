@@ -59,6 +59,7 @@ INSERT INTO `questions` (`qid`, `qno`, `question`, `ans1`, `ans2`, `ans3`, `ans4
 
 CREATE TABLE `users` (
   `mbno` DECIMAL(10,0) PRIMARY KEY,
+  `pass` varchar(500) NOT NULL DEFAULT '12345',
   `fname` varchar(225) NOT NULL,
   `lname` varchar(225) NOT NULL,
  `last_mod` varchar(225) NOT NULL,

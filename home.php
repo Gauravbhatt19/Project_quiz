@@ -26,6 +26,7 @@ $qry="SELECT val_u FROM user_control WHERE name='LOGIN'";
    if(isset($_SESSION['success']))
     {
       echo "<script> alert('".$_SESSION['success']."');</script>";
+      unset($_SESSION['success']);
     }
     ?>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,9 +34,12 @@ $qry="SELECT val_u FROM user_control WHERE name='LOGIN'";
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 text-center">
      <li class='nav-item'>
-        <a class='nav-link btn btn-info text-dark m-2' href='./players.php'>Scoreboard</a>
+        <a class='nav-link m-2' href='./players.php'>Scoreboard</a>
+      </li>     
+      <li class='nav-item'>
+        <a class='nav-link m-2' href='./changepass.php'>Change Password</a>
       </li>
       <li class='nav-item'>
         <a class='nav-link btn btn-danger m-2 ' href='javascript:void(0)' 
@@ -64,7 +68,7 @@ $qry="SELECT val_u FROM user_control WHERE name='LOGIN'";
     echo $_SESSION['name'];
     echo "</h5>
     <h5>Congratulations!</h5>
-    <p>You have successfully completed the test</p>
+    <p>You have successfully completed this Quiz</p>
     <ul>
             ";
      $atmp =$result['tattmpt'] ;

@@ -1,13 +1,6 @@
 <?php session_start(); ?>
 <?php include "../connection.php";
 if (isset($_SESSION['admin'])) {
-	$qry="SELECT val_u FROM user_control WHERE name='LOGIN'";
-    $result= mysqli_query($conn,$qry) or die(mysqli_error($conn));
-    $resultset=mysqli_fetch_assoc($result);
-    $check=$resultset['val_u']; 
-    if($check!='TRUE'){
-      header("location: ../waiting.php");
-    }
 ?>
 <html>
 	<head>
@@ -77,7 +70,7 @@ if (isset($_SESSION['admin'])) {
                 echo "<td>$fname</td>";
                 echo "<td>$lname</td>";
                 echo "<td>$mbno</td>";
-                echo "<td> <select onchange='chnge($mbno,this.value)' class='custom-select'><option disabled value='0' selected>Action</option><option value='1'>Edit</option><option value='2'>Delete</option><option value='3'>Reset</option></select></td>";
+                echo "<td> <select onchange='chnge($mbno,this.value)' class='custom-select'><option disabled value='0' selected>Action</option><option value='1'>Edit</option><option value='2'>Delete</option><option value='3'>Reset Quiz</option><option value='4'>Reset Password</option></select></td>";
                 echo "</tr>";
                 $cnt++;
              }
@@ -96,10 +89,17 @@ if (isset($_SESSION['admin'])) {
         window.location=lnk;
           }
         }
-        else{
+        else if(tod==3){
      var test= window.confirm("Are you sure, You want to reset this player\'s detail for Quiz..!");
             if(test == true){
             var lnk="./resetp.php?id="+qno;
+        window.location=lnk;
+          }
+          
+        }   else{
+     var test= window.confirm("Are you sure, You want to reset this player\'s Password..!");
+            if(test == true){
+            var lnk="./resetpass.php?id="+qno;
         window.location=lnk;
           }
           
